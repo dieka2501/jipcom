@@ -8,52 +8,37 @@
 		<section class="panel">
 			<header class="panel-heading">
 				<div class="panel-actions">
-					<a href="<?php echo Config::get('app.url');?>public/video_gallery/add" class="btn btn-default btn-sm"><i class="fa fa-plus"></i> Add data</a>
-					<a href="#" class="btn btn-default btn-sm"><i class="fa fa-trash"></i> Delete</a>
+					<a href="<?php echo Config::get('app.url');?>public/admin/video/add" class="btn btn-default btn-sm"><i class="fa fa-plus"></i> Add New</a>
 				</div>
 		
-				<h2 class="panel-title">Data Video</h2>
+				<h2 class="panel-title">Data Galery Video</h2>
 			</header>
+			{{$notip}}
 			<div class="panel-body">
-				<table class="table table-bordered table-striped mb-none" id="datatable-default">
+				<table class="table table-bordered table-striped mb-none" id="datatabl">
 					<thead>
-						<tr>
-							<th><input type="checkbox"></th>
-							<th>Video Gallery ID</th>
-							<th>Video Gallery Name</th>
+						<tr>	
+							<th>ID</th>
+							<th>Video Name</th>
 							<th>Tags</th>
+							<th>Thumb</th>
 							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
+						@foreach($getgalery as $galery)
 						<tr class="gradeX">
-							<td><input type="checkbox"></td>
-							<td>1</td>
-							<td>Sample name</td>
-							<td>Agility, Series</td>
-							<td><button class="btn btn-default btn-xs"><i class=" fa fa-edit"></i> Edit</button></td>
+							<td>{{$galery->id_video}}</td>
+							<td>{{$galery->video_title}}</td>
+							<td>{{$galery->video_tag}}</td>
+							<td><img src="{{Config::get('app.url')}}assets/galery/{{$galery->video_thumbnail}}" width="100" height="100"></td>
+							<td>
+								<a href="{{Config::get('app.url')}}public/admin/video/edit/{{$galery->id_video}}" class="btn btn-default btn-xs"><i class=" fa fa-edit"></i> Edit</a>
+								<a href="{{Config::get('app.url')}}public/admin/video/delete/{{$galery->id_video}}" onclick="return confirm('Are you sure?')"class="btn btn-default btn-xs"><i class=" fa fa-trash"></i> Delete</a>
+							</td>
 						</tr>
-						<tr class="gradeC">
-							<td><input type="checkbox"></td>
-							<td>2</td>
-							<td>Sample name</td>
-							<td>Agility, Series</td>
-							<td><button class="btn btn-default btn-xs"><i class=" fa fa-edit"></i> Edit</button></td>
-						</tr>
-						<tr class="gradeA">
-							<td><input type="checkbox"></td>
-							<td>3</td>
-							<td>Sample name</td>
-							<td>Agility, Series</td>
-							<td><button class="btn btn-default btn-xs"><i class=" fa fa-edit"></i> Edit</button></td>
-						</tr>
-						<tr class="gradeA">
-							<td><input type="checkbox"></td>
-							<td>4</td>
-							<td>Sample name</td>
-							<td>Agility, Series</td>
-							<td><button class="btn btn-default btn-xs"><i class=" fa fa-edit"></i> Edit</button></td>
-						</tr>
+						@endforeach
+						
 					</tbody>
 				</table>
 			</div>

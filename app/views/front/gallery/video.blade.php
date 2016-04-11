@@ -5,7 +5,40 @@
         <h1>Video Gallery</h1>
         <div id="event-list">
         <div class="row">
+            @foreach($video as $videos)
             <div class="col-md-4" style="margin-bottom: 30px;">
+                <a class="fancybox-media" href="{{$videos->video_url}}">
+                    <img src="<?php echo Config::get('app.url');?>assets/galery/{{$videos->video_thumbnail}}" class="img-responsive" alt="">
+                </a>
+                <h3><a class="fancybox-media" href="{{$videos->video_url}}">Video Title Here</a></h3>
+                <small><i class="icon-calender icons"></i> &nbsp; {{date('d F Y',strtotime($videos->created_at))}}</small>
+            </div>
+            @endforeach
+            <!-- <div class="col-md-4" style="margin-bottom: 30px;">
+                <a class="fancybox-media" href="https://www.youtube.com/embed/q1vXakhJ1uQ">
+                    <img src="<?php echo Config::get('app.url');?>assets/main/img/video.png" class="img-responsive" alt="">
+                </a>
+                <h3><a class="fancybox-media" href="https://www.youtube.com/embed/q1vXakhJ1uQ">Video Title Here</a></h3>
+                <small><i class="icon-calender icons"></i> &nbsp; 23 Sept, 2015</small>
+            </div> -->
+
+            <!-- <div class="col-md-4" style="margin-bottom: 30px;">
+                <a class="fancybox-media" href="https://www.youtube.com/embed/q1vXakhJ1uQ">
+                    <img src="<?php echo Config::get('app.url');?>assets/main/img/video.png" class="img-responsive" alt="">
+                </a>
+                <h3><a class="fancybox-media" href="https://www.youtube.com/embed/q1vXakhJ1uQ">Video Title Here</a></h3>
+                <small><i class="icon-calender icons"></i> &nbsp; 23 Sept, 2015</small>
+            </div> -->
+
+            <!-- <div class="col-md-4" style="margin-bottom: 30px;">
+                <a class="fancybox-media" href="https://www.youtube.com/embed/q1vXakhJ1uQ">
+                    <img src="<?php echo Config::get('app.url');?>assets/main/img/video.png" class="img-responsive" alt="">
+                </a>
+                <h3><a class="fancybox-media" href="https://www.youtube.com/embed/q1vXakhJ1uQ">Video Title Here</a></h3>
+                <small><i class="icon-calender icons"></i> &nbsp; 23 Sept, 2015</small>
+            </div> -->
+
+            <!-- <div class="col-md-4" style="margin-bottom: 30px;">
                 <a class="fancybox-media" href="https://www.youtube.com/embed/q1vXakhJ1uQ">
                     <img src="<?php echo Config::get('app.url');?>assets/main/img/video.png" class="img-responsive" alt="">
                 </a>
@@ -19,39 +52,7 @@
                 </a>
                 <h3><a class="fancybox-media" href="https://www.youtube.com/embed/q1vXakhJ1uQ">Video Title Here</a></h3>
                 <small><i class="icon-calender icons"></i> &nbsp; 23 Sept, 2015</small>
-            </div>
-
-            <div class="col-md-4" style="margin-bottom: 30px;">
-                <a class="fancybox-media" href="https://www.youtube.com/embed/q1vXakhJ1uQ">
-                    <img src="<?php echo Config::get('app.url');?>assets/main/img/video.png" class="img-responsive" alt="">
-                </a>
-                <h3><a class="fancybox-media" href="https://www.youtube.com/embed/q1vXakhJ1uQ">Video Title Here</a></h3>
-                <small><i class="icon-calender icons"></i> &nbsp; 23 Sept, 2015</small>
-            </div>
-
-            <div class="col-md-4" style="margin-bottom: 30px;">
-                <a class="fancybox-media" href="https://www.youtube.com/embed/q1vXakhJ1uQ">
-                    <img src="<?php echo Config::get('app.url');?>assets/main/img/video.png" class="img-responsive" alt="">
-                </a>
-                <h3><a class="fancybox-media" href="https://www.youtube.com/embed/q1vXakhJ1uQ">Video Title Here</a></h3>
-                <small><i class="icon-calender icons"></i> &nbsp; 23 Sept, 2015</small>
-            </div>
-
-            <div class="col-md-4" style="margin-bottom: 30px;">
-                <a class="fancybox-media" href="https://www.youtube.com/embed/q1vXakhJ1uQ">
-                    <img src="<?php echo Config::get('app.url');?>assets/main/img/video.png" class="img-responsive" alt="">
-                </a>
-                <h3><a class="fancybox-media" href="https://www.youtube.com/embed/q1vXakhJ1uQ">Video Title Here</a></h3>
-                <small><i class="icon-calender icons"></i> &nbsp; 23 Sept, 2015</small>
-            </div>
-
-            <div class="col-md-4" style="margin-bottom: 30px;">
-                <a class="fancybox-media" href="https://www.youtube.com/embed/q1vXakhJ1uQ">
-                    <img src="<?php echo Config::get('app.url');?>assets/main/img/video.png" class="img-responsive" alt="">
-                </a>
-                <h3><a class="fancybox-media" href="https://www.youtube.com/embed/q1vXakhJ1uQ">Video Title Here</a></h3>
-                <small><i class="icon-calender icons"></i> &nbsp; 23 Sept, 2015</small>
-            </div>
+            </div> -->
         </div>
             <!-- <div class="row clearfix">
                 <div class="col-md-4">

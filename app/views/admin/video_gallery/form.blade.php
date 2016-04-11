@@ -1,7 +1,7 @@
 @extends('template')
 @section('content')
 	<header class="page-header">
-		<h2>Vide Gallery</h2>
+		<h2>video Gallery</h2>
 	</header>
 
 	<!-- start: page -->
@@ -12,74 +12,90 @@
 					<a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>
 				</div>
 		
-				<h2 class="panel-title">Add New</h2>
+				<h2 class="panel-title">Add New Video</h2>
 			</header>
-			<form>
+			{{Form::open(['url'=>$url,'method'=>'post','files'=>true])}}
+			{{$notip}}
 			<div class="panel-body">
 				<div class="row">
 					<div class="col-md-6">
-						<div class="form-group">
-							<label>ID Video Gallery</label>
-							<input type="text" class="form-control">
+						<div class="form-group" >
+							<label>Galery Video Name</label>
+							<input type="text" class="form-control" required="required" name='name' value="{{$name}}">
+							<input type="hidden" class="form-control"  name='ids' value="{{$id_video}}">
 						</div>
 						<div class="form-group">
-							<label>Nama Video Gallery</label>
-							<input type="text" class="form-control">
+							<label>Thumbnail Video</label>
+							<input type="file" class="form-control" name='thumb'>
 						</div>
+						
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
 							<label>Tags</label>
-							<input type="text" class="form-control">
-						</div>						
+							<input type="text" class="form-control" name='tags' value="{{$tags}}">
+						</div>
+						<div class="form-group">
+							<label>Description</label>
+							<textarea class="form-control" name='description'>{{$description}}</textarea>
+						</div>
 					</div>
 				</div>
-				<br/>
-				<button class="btn btn-default btn-sm"><i class="fa fa-plus"></i> Add Row</button>
-				<div style="clear:both;margin-bottom: 20px;"></div>
-				<table class="table table-bordered table-striped mb-none">
-					<thead>
-						<tr>
-							<th><input type="checkbox"></th>
-							<th>URL</th>
-							<th>Preview</th>
-							<th>Action</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="gradeX">
-							<td><input type="checkbox"></td>
-							<td><input type="text" class="form-control input-sm"></td>
-							<td>Sample name</td>
-							<td><button class="btn btn-default btn-xs"><i class=" fa fa-edit"></i> Edit</button></td>
-						</tr>
-						<tr class="gradeC">
-							<td><input type="checkbox"></td>
-							<td><input type="text" class="form-control input-sm"></td>
-							<td>Sample name</td>
-							<td><button class="btn btn-default btn-xs"><i class=" fa fa-edit"></i> Edit</button></td>
-						</tr>
-						<tr class="gradeA">
-							<td><input type="checkbox"></td>
-							<td><input type="text" class="form-control input-sm"></td>
-							<td>Sample name</td>
-							<td><button class="btn btn-default btn-xs"><i class=" fa fa-edit"></i> Edit</button></td>
-						</tr>
-						<tr class="gradeA">
-							<td><input type="checkbox"></td>
-							<td><input type="text" class="form-control input-sm"></td>
-							<td>Sample name</td>
-							<td><button class="btn btn-default btn-xs"><i class=" fa fa-edit"></i> Edit</button></td>
-						</tr>
-					</tbody>
-				</table>
-
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group " >
+							<label>Add Link Video</label>
+							<input type="text" class="form-control" name='url_video' placeholder="URL Video" value="{{$url_video}}">	
+						</div>
+						
+					</div>
+					<div class="col-md-6">
+						
+					</div>
+				</div>
+				@if($action == 'none')
+				<div class="row">
+					<div class="col-md-12">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>video</th>
+									<th>Delete</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach($video as $videos)
+								<tr>
+									<td>{{$videos->vf_file}}</td>
+									<td><a href="{{Config::get('app.url')}}public/admin/video/file/delete/{{$videos->id_vf}}?id={{$id_video}}" class="btn btn-danger"  onclick="return confirm('Are You Sure?')">Delete</a></td>
+								</tr>
+								@endforeach
+							</tbody>
+						</table>
+					</div>
+				</div>
+				@endif
 			</div>
 			<div class="panel-footer">
 				<button type="submit" class="btn btn-default">Submit</button>
+				<a href="{{Config::get('app.url')}}public/admin/video" class="btn btn-danger">Back</a>
 			</div>
 			</form>
 		</section>
-		
+		<script src="{{Config::get('app.url')}}assets/js/jquery.js"></script>
+		<script type="text/javascript">
+		    $(document).ready(function(){
+		        $('#clone_file').click(function(){
+		            var form_file = "<div class='form-group'>"+
+		                            "<label>Add Link Video</label>"+
+		                            "<input type='text' class='form-control' required='required' name='url_video[]' placeholder='URL Video'>"+
+		                            "<input type='text' class='form-control' name='title_video[]' placeholder='Title Video'>"+
+		                            "</div>";
+		            // console.log(form_file);
+		            // alert(form_file);
+		            $('#divfile').append(form_file);
+		        });
+		    });
+		</script>
 	<!-- end: page -->
 @stop

@@ -66,8 +66,14 @@ Route::get('/admin/image/file/delete/{id}', ['before'=>'userAuth','uses'=>'image
 Route::post('/admin/image/edit', ['before'=>'userAuth','uses'=>'imageAdminController@do_edit']);
 Route::get('/admin/image/delete/{id}', ['before'=>'userAuth','uses'=>'imageAdminController@del']);
 
-Route::get('/admin/video', ['before'=>'userAuth','uses'=>'DashboardController@video_gallery']);
-Route::get('/admin/video/add', ['before'=>'userAuth','uses'=>'DashboardController@video_gallery_form']);
+Route::get('/admin/video', ['before'=>'userAuth','uses'=>'videoAdminController@index']);
+Route::get('/admin/video/add', ['before'=>'userAuth','uses'=>'videoAdminController@add']);
+Route::post('/admin/video/add', ['before'=>'userAuth','uses'=>'videoAdminController@do_add']);
+Route::get('/admin/video/edit/{id}', ['before'=>'userAuth','uses'=>'videoAdminController@edit']);
+Route::get('/admin/video/file/delete/{id}', ['before'=>'userAuth','uses'=>'videoAdminController@delete_file']);
+Route::post('/admin/video/edit', ['before'=>'userAuth','uses'=>'videoAdminController@do_edit']);
+Route::get('/admin/video/delete/{id}', ['before'=>'userAuth','uses'=>'videoAdminController@del']);
+
 
 Route::get('/admin/newsevents', ['before'=>'userAuth','uses'=>'neAdminController@index']);
 Route::get('/admin/newsevents/add', ['before'=>'userAuth','uses'=>'neAdminController@add']);

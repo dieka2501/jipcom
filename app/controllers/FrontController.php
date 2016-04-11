@@ -10,6 +10,7 @@ class FrontController extends BaseController
 		date_default_timezone_set('Asia/Jakarta');
 		$this->newsevent 	= new newsevent;
 		$this->galery 		= new image;
+		$this->video 		= new video;
 	}
 
 	function index()
@@ -36,7 +37,8 @@ class FrontController extends BaseController
 
 	function video_gallery()
 	{
-		return View::make('front.gallery.video');
+		$view['video'] 		= $this->video->get_page(6);
+		return View::make('front.gallery.video',$view);
 	}
 
 	function news()
