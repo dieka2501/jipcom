@@ -3,7 +3,7 @@
 <!--CONTENT-->
 <div class="container">
     <div class="news-list-wrap news-content">
-        <h1>Album Gallery</h1>
+        <h1>Photo Gallery</h1>
         <div id="news-list">
         <div class="row clearfix">
                     @foreach($galery as $galeries)

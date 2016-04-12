@@ -35,6 +35,15 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <style type="text/css">
+    #news-list h3, #event-list h3, #video-gallery h3 {
+      text-transform: none!important;
+    }
+    #slider1_container img {
+      height: auto!important;
+    }
+    </style>
+
 </head>
 <body>    
 <header id="header">
