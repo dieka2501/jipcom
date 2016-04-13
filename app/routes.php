@@ -35,6 +35,7 @@ Route::get('/foto', 'galeryController@index');
 Route::get('/galery/detail/{id}', 'galeryController@detail');
 
 Route::get('/video', 'FrontController@video_gallery');
+Route::get('/video/detail', 'FrontController@video_detail');
 
 Route::get('/news', 'neController@index');
 

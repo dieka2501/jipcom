@@ -37,8 +37,15 @@ class FrontController extends BaseController
 
 	function video_gallery()
 	{
+		// $view['video'] 		= $this->video->get_page(6);
+		// return View::make('front.gallery.video',$view);
+		return View::make('front.gallery.video');
+	}
+
+	function video_detail()
+	{
 		$view['video'] 		= $this->video->get_page(6);
-		return View::make('front.gallery.video',$view);
+		return View::make('front.gallery.video_detail',$view);
 	}
 
 	function news()
