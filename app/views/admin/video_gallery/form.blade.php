@@ -42,10 +42,13 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-6">
-						<div class="form-group " >
+					<div class="col-md-6" >
+						<div class="form-group" id='divfile'>
 							<label>Add Link Video</label>
-							<input type="text" class="form-control" name='url_video' placeholder="URL Video" value="{{$url_video}}">	
+							<input type="text" class="form-control" name='url_video[]' placeholder="URL Video" >	
+						</div>
+						<div class="form-group">
+							<button type="button" class="btn btn-success" id='clone_file'>Add Link Video</button>
 						</div>
 						
 					</div>
@@ -53,7 +56,7 @@
 						
 					</div>
 				</div>
-				@if($action == 'none')
+				@if($action == 'edit')
 				<div class="row">
 					<div class="col-md-12">
 						<table class="table table-bordered">
@@ -89,7 +92,7 @@
 		            var form_file = "<div class='form-group'>"+
 		                            "<label>Add Link Video</label>"+
 		                            "<input type='text' class='form-control' required='required' name='url_video[]' placeholder='URL Video'>"+
-		                            "<input type='text' class='form-control' name='title_video[]' placeholder='Title Video'>"+
+		                            
 		                            "</div>";
 		            // console.log(form_file);
 		            // alert(form_file);

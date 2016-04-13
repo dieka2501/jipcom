@@ -20,6 +20,7 @@ class videoAdminController Extends BaseController{
 		$view['description']   = Session::get('description');
 		$view['id_video']      = Session::get('id_video');
 		$view['notip']     	   = Session::get('notip');
+		$view['url_video'] 	   = Session::get('url_video');
 		$view['url'] 		   = Config::get('app.url').'public/admin/video/add';
 		$this->layout->content = View::make('admin.video_gallery.form',$view);
 	}
@@ -27,11 +28,11 @@ class videoAdminController Extends BaseController{
 		$name 							= Input::get('name');
 		$description 					= Input::get('description');
 		$tags 							= Input::get('tags');
-		$url 							= Input::get('url_video');
+		// $url 							= Input::get('url_video');
 		$insert['video_title']  		= $name;
 		$insert['video_description']  	= $description;
 		$insert['video_tag']  			= $tags;
-		$insert['video_url']  			= $url;
+		// $insert['video_url']  			= $url;
 		$insert['created_at']  			= date('Y-m-d H:i:s');
 		if(Input::hasFile('thumb')){
 			$thumb 		= Input::file('thumb');
@@ -40,21 +41,19 @@ class videoAdminController Extends BaseController{
 			$insert['video_thumbnail']  			= $filename;
 		}
 		$ids 	= $this->video->add($insert);
-		// if(Input::has('url_video')){
-		// 	$video 		= Input::get('url_video');
-		// 	$count 		= count($video);
-		// 	for($i=0;$count > $i;$i++){
-		// 		if(!is_null($video[$i])){
-		// 			$file['video_id'] 			= $ids;
-		// 			$file['vf_file'] 		 	= $video[$i];
-		// 			$file['created_at'] 		= date('Y-m-d H:i:s');
-		// 			$this->videoFile->add($file);
-					
-		// 		}
-				
-		// 	}
-		// 	// echo "true";
-		// }
+		if(Input::has('url_video')){
+			$video 		= Input::get('url_video');
+			$count 		= count($video);
+			for($i=0;$count > $i;$i++){
+				if(!is_null($video[$i])){
+					$file['video_id'] 			= $ids;
+					$file['vf_file'] 		 	= $video[$i];
+					$file['created_at'] 		= date('Y-m-d H:i:s');
+					$this->videoFile->add($file);
+				}
+			}
+			// echo "true";
+		}
 		if($ids > 0){
 			Session::flash('notip','<div class="alert alert-success" role="alert">Galery created.</div>');
 			return Redirect::to('admin/video');	
@@ -74,7 +73,7 @@ class videoAdminController Extends BaseController{
 		$view['name'] 		   = $getgalery->video_title;
 		$view['tags'] 		   = $getgalery->video_tag;
 		$view['description']   = $getgalery->video_description;
-		$view['url_video']     = $getgalery->video_url;
+		// $view['url_video']     = $getgalery->video_url;
 		$view['id_video']      = $getgalery->id_video;
 		$view['notip']     	   = Session::get('notip');
 		$this->layout->content = View::make('admin.video_gallery.form',$view);
@@ -90,11 +89,9 @@ class videoAdminController Extends BaseController{
 		$description 			= Input::get('description');
 		$tags 					= Input::get('tags');
 		$ids 					= Input::get('ids');
-		$url 					= Input::get('url_video');
 		$insert['video_title']  		= $name;
 		$insert['video_description']  	= $description;
 		$insert['video_tag']  			= $tags;
-		$insert['video_url']  			= $url;
 		$insert['updated_at']  			= date('Y-m-d H:i:s');
 		if(Input::hasFile('thumb')){
 			$thumb 		= Input::file('thumb');
@@ -105,22 +102,22 @@ class videoAdminController Extends BaseController{
 			// echo "true";
 		}
 		$res = $this->video->edit($ids,$insert);
-		// if(Input::has('url_video')){
-		// 	$video 		= Input::get('url_video');
-		// 	$titlevideo	= Input::get('title_video');
-		// 	$count 		= count($video);
-		// 	for($i=0;$count > $i;$i++){
-		// 		if(!is_null($video[$i])){
-		// 			$file['video_id'] 			= $ids;
-		// 			$file['vf_file'] 		 	= $video[$i];
-		// 			$file['created_at'] 		= date('Y-m-d H:i:s');
-		// 			$this->videoFile->add($file);
+		if(Input::has('url_video')){
+			$video 		= Input::get('url_video');
+			$titlevideo	= Input::get('title_video');
+			$count 		= count($video);
+			for($i=0;$count > $i;$i++){
+				if(!is_null($video[$i])){
+					$file['video_id'] 			= $ids;
+					$file['vf_file'] 		 	= $video[$i];
+					$file['created_at'] 		= date('Y-m-d H:i:s');
+					$this->videoFile->add($file);
 					
-		// 		}
+				}
 				
-		// 	}
-		// 	// echo "true";
-		// }
+			}
+			// echo "true";
+		}
 		if($res > 0){
 			Session::flash('notip','<div class="alert alert-success" role="alert">Galery updated.</div>');
 			return Redirect::to('admin/video');	
