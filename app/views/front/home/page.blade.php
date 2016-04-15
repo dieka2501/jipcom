@@ -86,6 +86,30 @@
             </div> -->
         </div>
     </div>
+
+    <div id="news-list" class="galleries">
+        <h1>Video Gallery</h1>
+        <div class="row clearfix">
+            <div class="col-md-4 news-item">
+                <img src="<?php echo Config::get('app.url');?>assets/main/img/video.png" class="img-responsive" alt="">
+                <h3><a href="<?php echo Config::get('app.url');?>public/video_detail">Gallery Title Here</a></h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+                <small><i class="icon-calender icons"></i> &nbsp; 23 Sept, 2015</small>
+            </div>
+            <div class="col-md-4 news-item">
+                <img src="<?php echo Config::get('app.url');?>assets/main/img/video.png" class="img-responsive" alt="">
+                <h3><a href="<?php echo Config::get('app.url');?>public/video_detail">Gallery Title Here</a></h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+                <small><i class="icon-calender icons"></i> &nbsp; 23 Sept, 2015</small>
+            </div>
+            <div class="col-md-4 news-item">
+                <img src="<?php echo Config::get('app.url');?>assets/main/img/video.png" class="img-responsive" alt="">
+                <h3><a href="<?php echo Config::get('app.url');?>public/video_detail">Gallery Title Here</a></h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
+                <small><i class="icon-calender icons"></i> &nbsp; 23 Sept, 2015</small>
+            </div>
+        </div>
+    </div>
     <div class="pre-footer">
         <div class="row">
             <div class="col-md-12 text-center">
