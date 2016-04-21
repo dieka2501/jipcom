@@ -22,6 +22,7 @@
     <link href="<?php echo Config::get('app.url');?>assets/main/css/owl.carousel.css" rel="stylesheet">
     <link href="<?php echo Config::get('app.url');?>assets/main/css/owl.theme.css" rel="stylesheet">
     <link href="<?php echo Config::get('app.url');?>assets/main/css/owl.transitions.css" rel="stylesheet">
+    <link href="<?php echo Config::get('app.url');?>assets/main/css/lightgallery.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo Config::get('app.url');?>assets/main/css/tabs.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo Config::get('app.url');?>assets/main/css/tabstyles.css" />
     <script src="<?php echo Config::get('app.url');?>assets/main/js/jquery-1.9.1.min.js"></script>
@@ -212,6 +213,21 @@
     <script type="text/javascript" src="<?php echo Config::get('app.url');?>assets/main/js/jssor.js"></script>
     <script type="text/javascript" src="<?php echo Config::get('app.url');?>assets/main/js/jssor.slider.js"></script>
     <script type="text/javascript" src="<?php echo Config::get('app.url');?>assets/main/js/scripts.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('#video-gallery').lightGallery();
+    });
+    </script>
+    <script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
+    <script src="<?php echo Config::get('app.url');?>assets/main/js/lightgallery.js"></script>
+    <script src="<?php echo Config::get('app.url');?>assets/main/js/lg-fullscreen.js"></script>
+    <script src="<?php echo Config::get('app.url');?>assets/main/js/lg-thumbnail.js"></script>
+    <script src="<?php echo Config::get('app.url');?>assets/main/js/lg-video.js"></script>
+    <script src="<?php echo Config::get('app.url');?>assets/main/js/lg-autoplay.js"></script>
+    <script src="<?php echo Config::get('app.url');?>assets/main/js/lg-zoom.js"></script>
+    <script src="<?php echo Config::get('app.url');?>assets/main/js/lg-hash.js"></script>
+    <script src="<?php echo Config::get('app.url');?>assets/main/js/lg-pager.js"></script>
+    <script src="<?php echo Config::get('app.url');?>assets/main/js/jquery.mousewheel.min.js"></script>
     <script type="text/javascript">
       $(document).ready(function(){
         
