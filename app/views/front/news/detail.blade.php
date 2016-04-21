@@ -5,7 +5,7 @@
     <div class="news-list-wrap">
         <h1>{{$ne->ne_title}}</h1>
         <div class="news-content">
-            <div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 1020px;height: 456px; background: #191919; overflow: hidden;">
+            <div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 1020px;height: 750px; background: #191919; overflow: hidden;">
                 <!-- Loading Screen -->
                 <div u="loading" style="position: absolute; top: 0px; left: 0px;">
                     <div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;
@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <!-- Slides Container -->
-                <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1020px; height: 356px; overflow: hidden;">
+                <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1020px; height: 650px; overflow: hidden;">
                 @foreach($nef as $nefs)
                     <div>
                         <img u="image" src="<?php echo Config::get('app.url');?>/assets/upload/{{$nefs->nef_file}}" />
