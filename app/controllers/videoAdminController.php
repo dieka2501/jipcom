@@ -45,7 +45,7 @@ class videoAdminController Extends BaseController{
 			$video 		= Input::get('url_video');
 			$count 		= count($video);
 			for($i=0;$count > $i;$i++){
-				if(!is_null($video[$i])){
+				if(!is_null($video[$i]) && $video[$i] != "" ){
 					$file['video_id'] 			= $ids;
 					$file['vf_file'] 		 	= $video[$i];
 					$file['created_at'] 		= date('Y-m-d H:i:s');
@@ -107,7 +107,7 @@ class videoAdminController Extends BaseController{
 			$titlevideo	= Input::get('title_video');
 			$count 		= count($video);
 			for($i=0;$count > $i;$i++){
-				if(!is_null($video[$i])){
+				if(!is_null($video[$i]) && $video[$i] != ""){
 					$file['video_id'] 			= $ids;
 					$file['vf_file'] 		 	= $video[$i];
 					$file['created_at'] 		= date('Y-m-d H:i:s');

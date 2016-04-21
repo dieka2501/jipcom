@@ -17,4 +17,7 @@ class video Extends Eloquent{
 	function del($id){
 		return video::where($this->primaryKey,$id)->delete();
 	}
+	function rand_tag($tag){
+		return video::where('video_tag','like','%'.$tag.'%')->orderBy(DB::raw('RAND()'))->take(3)->get();
+	}
 }

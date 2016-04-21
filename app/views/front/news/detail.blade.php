@@ -95,9 +95,18 @@
         </div>
     </div>
     <div class="commentator-wrap">
-        <h1>Related Events</h1>
+        <h1>Related Video</h1>
         <div class="row">
+        @foreach($related as $relateds)
             <div id="event-list" class="col-md-4">
+                <a href="<?php echo Config::get('app.url');?>public/video/detail/{{$relateds->id_video}}">
+                    <img src="<?php echo Config::get('app.url');?>assets/galery/{{$relateds->video_thumbnail}}" class="img-responsive" alt="">
+                </a>
+                <h3><a href="<?php echo Config::get('app.url');?>public/video/detail/{{$relateds->id_video}}">{{$relateds->video_description}}</a></h3>
+                <small><i class="icon-calender icons"></i> &nbsp; {{date('d F Y',strtotime($relateds->created_at))}}</small>
+            </div>
+        @endforeach
+            <!-- <div id="event-list" class="col-md-4">
                 <div class="embed-youtube"><iframe width="100%" height="225" src="https://www.youtube.com/embed/q1vXakhJ1uQ" frameborder="0" allowfullscreen></iframe></div>
                 <h3><a href="#">Events Title Here</a></h3>
                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
@@ -108,13 +117,7 @@
                 <h3><a href="#">Events Title Here</a></h3>
                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
                 <small><i class="icon-calender icons"></i> &nbsp; 23 Sept, 2015</small>
-            </div>
-            <div id="event-list" class="col-md-4">
-                <div class="embed-youtube"><iframe width="100%" height="225" src="https://www.youtube.com/embed/q1vXakhJ1uQ" frameborder="0" allowfullscreen></iframe></div>
-                <h3><a href="#">Events Title Here</a></h3>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
-                <small><i class="icon-calender icons"></i> &nbsp; 23 Sept, 2015</small>
-            </div>
+            </div> -->
             <div class="clearfix"></div>
         </div>
     </div>
