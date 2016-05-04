@@ -90,24 +90,35 @@
     <div id="news-list" class="galleries">
         <h1>Video Gallery</h1>
         <div class="row clearfix">
-            <div class="col-md-4 news-item">
-                <img src="<?php echo Config::get('app.url');?>assets/main/img/video.png" class="img-responsive" alt="">
-                <h3><a href="<?php echo Config::get('app.url');?>public/video_detail">Gallery Title Here</a></h3>
+            @foreach($video as $videos)
+            <div class="col-md-4" style="margin-bottom: 30px;">
+                
+                <a href="<?php echo Config::get('app.url');?>public/video/detail/{{$videos->id_video}}">
+                    <img src="<?php echo Config::get('app.url');?>assets/galery/{{$videos->video_thumbnail}}" class="img-responsive" alt="">
+                </a>
+                <h3><a href="<?php echo Config::get('app.url');?>public/video/detail/{{$videos->id_video}}">{{$videos->video_description}}</a></h3>
+                <small><i class="icon-calender icons"></i> &nbsp; {{date('d F Y',strtotime($videos->created_at))}}</small>
+            </div>
+        @endforeach
+
+            <!-- <div class="col-md-4 news-item">
+                <img src="assets/main/img/video.png" class="img-responsive" alt="">
+                <h3><a href="public/video_detail">Gallery Title Here</a></h3>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
                 <small><i class="icon-calender icons"></i> &nbsp; 23 Sept, 2015</small>
             </div>
             <div class="col-md-4 news-item">
-                <img src="<?php echo Config::get('app.url');?>assets/main/img/video.png" class="img-responsive" alt="">
-                <h3><a href="<?php echo Config::get('app.url');?>public/video_detail">Gallery Title Here</a></h3>
+                <img src="assets/main/img/video.png" class="img-responsive" alt="">
+                <h3><a href="public/video_detail">Gallery Title Here</a></h3>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
                 <small><i class="icon-calender icons"></i> &nbsp; 23 Sept, 2015</small>
             </div>
             <div class="col-md-4 news-item">
-                <img src="<?php echo Config::get('app.url');?>assets/main/img/video.png" class="img-responsive" alt="">
-                <h3><a href="<?php echo Config::get('app.url');?>public/video_detail">Gallery Title Here</a></h3>
+                <img src="assets/main/img/video.png" class="img-responsive" alt="">
+                <h3><a href="public/video_detail">Gallery Title Here</a></h3>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard</p>
                 <small><i class="icon-calender icons"></i> &nbsp; 23 Sept, 2015</small>
-            </div>
+            </div> -->
         </div>
     </div>
     <div class="pre-footer">

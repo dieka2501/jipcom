@@ -17,6 +17,7 @@ class FrontController extends BaseController
 	{
 		$view['newsevent'] = $this->newsevent->get_page(3); 
 		$view['galery']    = $this->galery->get_page(3);
+		$view['video']     = $this->video->get_page(3);
 		return View::make('front.home.page',$view);
 	}
 

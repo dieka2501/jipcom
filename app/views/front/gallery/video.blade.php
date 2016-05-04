@@ -8,8 +8,6 @@
         @foreach($video as $videos)
             <div class="col-md-4" style="margin-bottom: 30px;">
                 
-  
-                
                 <a href="<?php echo Config::get('app.url');?>public/video/detail/{{$videos->id_video}}">
                     <img src="<?php echo Config::get('app.url');?>assets/galery/{{$videos->video_thumbnail}}" class="img-responsive" alt="">
                 </a>

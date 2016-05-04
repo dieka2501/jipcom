@@ -43,11 +43,13 @@ class videoAdminController Extends BaseController{
 		$ids 	= $this->video->add($insert);
 		if(Input::has('url_video')){
 			$video 		= Input::get('url_video');
+			$title 		= Input::get('title_video');
 			$count 		= count($video);
 			for($i=0;$count > $i;$i++){
 				if(!is_null($video[$i]) && $video[$i] != "" ){
 					$file['video_id'] 			= $ids;
 					$file['vf_file'] 		 	= $video[$i];
+					$file['vf_title'] 		 	= $title[$i];
 					$file['created_at'] 		= date('Y-m-d H:i:s');
 					$this->videoFile->add($file);
 				}

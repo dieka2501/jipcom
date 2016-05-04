@@ -7,7 +7,9 @@
         <div class="row">
         <div id="video-gallery">
             @foreach($detail as $videos)
+
             <a href="{{$videos->vf_file}}" class="col-md-4" style="margin-bottom: 30px;">
+                <label><strong>{{$videos->vf_title}}</strong></label>
                 <img src="<?php echo Config::get('app.url');?>assets/main/img/video.png" class="img-responsive" />
             </a>
             @endforeach

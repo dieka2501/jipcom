@@ -45,7 +45,12 @@
 					<div class="col-md-6" >
 						<div class="form-group" id='divfile'>
 							<label>Add Link Video</label>
-							<input type="text" class="form-control" name='url_video[]' placeholder="URL Video" >	
+							<div class="form-group">
+								<input type="text" class="form-control" name='url_video[]' placeholder="URL Video" >	
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" name='title_video[]' placeholder="Title Video" >	
+							</div>
 						</div>
 						<div class="form-group">
 							<button type="button" class="btn btn-success" id='clone_file'>Add Link Video</button>
@@ -91,8 +96,12 @@
 		        $('#clone_file').click(function(){
 		            var form_file = "<div class='form-group'>"+
 		                            "<label>Add Link Video</label>"+
+		                            "<div class='form-group'>"+
 		                            "<input type='text' class='form-control' required='required' name='url_video[]' placeholder='URL Video'>"+
-		                            
+		                            "</div>"+
+		                            "<div class='form-group'>"+
+		                            "<input type='text' class='form-control' name='title_video[]' placeholder='Title Video'>"
+		                            "</div>"+
 		                            "</div>";
 		            // console.log(form_file);
 		            // alert(form_file);
