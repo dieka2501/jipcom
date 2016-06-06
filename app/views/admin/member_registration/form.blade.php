@@ -44,6 +44,7 @@
 							<option>A</option>
 							<option>AB</option>
 							<option>B</option>
+							<option>O</option>
 						</select>
 					</div>
 					<div class="form-group">

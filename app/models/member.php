@@ -8,4 +8,10 @@ class member Extends Eloquent{
 	function edit($id,$data){
 		return member::where($this->primaryKey,$id)->update($data);
 	}
+	function get_page(){
+		return member::orderBy('id_member','DESC')->paginate(20);
+	}
+	function get_id($id){
+		return member::find($id);
+	}
 }
