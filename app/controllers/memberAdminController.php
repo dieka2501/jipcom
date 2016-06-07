@@ -12,22 +12,23 @@ class memberAdminController Extends BaseController{
 	}
 	function add(){
 		$view['url'] 					= Config::get('app.url').'public/admin/member/add';
-		$view['member_type'] 			= $type;
-		$view['member_name'] 			= $member_name;
-		$view['member_nickname'] 		= $member_nickname;
-		$view['member_birth'] 			= $member_birth;
-		$view['member_religion'] 		= $member_religion;
-		$view['member_sex']	 			= $member_sex;
-		$view['member_blood_type']		= $member_blood_type;
-		$view['member_address']			= $member_address;
-		$view['member_phone']			= $member_phone;
-		$view['member_email']			= $member_email;
-		$view['member_office']			= $member_office;
-		$view['member_office_address']	= $member_office_address;
-		$view['member_office_number']	= $member_office_number;
-		$view['member_business']		= $member_business;
-		$view['member_position']		= $member_position;
-		$view['member_license']			= $member_license;
+		$view['member_id']		 		= Session::get('member_id');
+		$view['member_type'] 			= Session::get('type');
+		$view['member_name'] 			= Session::get('member_name');
+		$view['member_nickname'] 		= Session::get('member_nickname');
+		$view['member_birth'] 			= Session::get('member_birth');
+		$view['member_religion'] 		= Session::get('member_religion');
+		$view['member_sex']	 			= Session::get('member_sex');
+		$view['member_blood_type']		= Session::get('member_blood_type');
+		$view['member_address']			= Session::get('member_address');
+		$view['member_phone']			= Session::get('member_phone');
+		$view['member_email']			= Session::get('member_email');
+		$view['member_office']			= Session::get('member_office');
+		$view['member_office_address']	= Session::get('member_office_address');
+		$view['member_office_number']	= Session::get('member_office_number');
+		$view['member_business']		= Session::get('member_business');
+		$view['member_position']		= Session::get('member_position');
+		$view['member_license']			= Session::get('member_license');
 		return View::make('admin.master_member.form',$view);
 	}
 
